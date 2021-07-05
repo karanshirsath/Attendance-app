@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create a Classroom</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Enter Classroom Details.</ion-card-subtitle>
+      <ion-card-title>Classroom</ion-card-title>
+    </ion-card-header>
+    <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+      <ion-item>
+        <ion-label position="floating">Classroom Name</ion-label>
+        <ion-input inputmode="text" formControlName="classroomName" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Institution Name</ion-label>
+        <ion-input inputmode="text" formControlName="institutionName" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">BatchNo</ion-label>
+        <ion-input inputmode="text" formControlName="batchNo" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Batch Year</ion-label>
+        <ion-input inputmode="text" formControlName="batchYear" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Class Teacher</ion-label>
+        <ion-input inputmode="text" formControlName="classTeacher" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Classroom code</ion-label>
+        <ion-input inputmode="text" formControlName="classCode"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Course Description</ion-label>
+        <ion-input inputmode="text" formControlName="courseDescription"></ion-input>
+      </ion-item>
+      <ion-item>
+        <p>
+          Upload Student Data
+        </p>
+
+       <input type="file" (change)="getFileData($event)"/>
+
+      </ion-item>
+       <ion-item>
+        <div *ngIf = "status === 'failed'">
+          <ion-label style="color: red;">{{statusMessage}}</ion-label>
+        </div>
+        <div *ngIf = "status === 'success'">
+          <ion-label style="color: green;">{{statusMessage}}</ion-label>
+        </div>
+
+      </ion-item>
+      <ion-item>
+      </ion-item>
+      <ion-button expand="block" type="submit">Create New Classroom</ion-button>
+      <!-- <ion-item>
+        <div *ngIf = "status === 'failed'">
+          <ion-label style="color: red;">{{statusMessage}}</ion-label>
+        </div>
+        <div *ngIf = "status === 'success'">
+          <ion-label style="color: green;">{{statusMessage}}</ion-label>
+        </div>
+
+      </ion-item> -->
+      <ion-item>
+        <a style="padding-left: 16%;" (click)="navigate()">Go back to Dashboard.</a>
+      </ion-item>
+
+
+
+    </form>
+
+  </ion-card>
+</ion-content>

@@ -1,20 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-app>
+  <ion-header translucent>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title>Login Page</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>,
+  <ion-content fullscreen>
+    <ion-card>
+      <img src="../../assets/icon/login.png" />
+      <ion-card-header>
+        <ion-card-subtitle>Welcome, Now take Attendance with Ease.</ion-card-subtitle>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input inputmode="text" formControlName="userName" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input inputmode="text" formControlName="password" ></ion-input>
+        </ion-item>
+        <ion-item>
+        </ion-item>
+        <ion-button expand="block" type="submit">Proceed to Login</ion-button>
+        <ion-item>
+          <div *ngIf = "status === 'failed'">
+            <ion-label style="color: red;">{{statusMessage}}</ion-label>
+          </div>
+          <div *ngIf = "status === 'success'">
+            <ion-label style="color: green;">{{statusMessage}}</ion-label>
+          </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+        </ion-item>
+        <ion-item>
+          <a style="padding-left: 25%;" [routerLink]="['/create-new-user']">Create a New User?</a>
+        </ion-item>
+
+
+
+      </form>
+
+    </ion-card>
+  </ion-content>
+</ion-app>

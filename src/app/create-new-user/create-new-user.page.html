@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create an Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>lets get started.</ion-card-subtitle>
+      <ion-card-title>Sign up</ion-card-title>
+    </ion-card-header>
+    <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input inputmode="text" formControlName="firstName" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input inputmode="text" formControlName="lastName" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Designation</ion-label>
+        <ion-input inputmode="text" formControlName="designation" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input inputmode="text" formControlName="userName" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input inputmode="text" formControlName="password" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input inputmode="text" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+      <ion-item>
+      </ion-item>
+      <ion-button expand="block" type="submit">Create New User</ion-button>
+      <ion-item>
+        <div *ngIf = "status === 'failed'">
+          <ion-label style="color: red;">{{statusMessage}}</ion-label>
+        </div>
+        <div *ngIf = "status === 'success'">
+          <ion-label style="color: green;">{{statusMessage}}</ion-label>
+        </div>
+
+      </ion-item>
+      <ion-item>
+        <a style="padding-left: 23%;" [routerLink]="['/home']">Go back to login page.</a>
+      </ion-item>
+
+
+
+    </form>
+
+  </ion-card>
+</ion-content>
